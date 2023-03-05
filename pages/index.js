@@ -1,11 +1,251 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { Menu } from 'antd'
+import { useState } from 'react'
+import styles from '@/styles/Home.module.scss'
+import { Carousel } from 'antd'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const items = [
+    {
+      label: '首页',
+      key: 'Home',
+    },
+    {
+      label: '公司简介',
+      key: 'Introduction',
+    },
+    {
+      label: '新闻中心',
+      key: 'NewMenu',
+      children: [
+        {
+          type: 'group',
+          label: 'Item 1',
+          children: [
+            {
+              label: 'Option 1',
+              key: 'setting:1',
+            },
+            {
+              label: 'Option 2',
+              key: 'setting:2',
+            },
+          ],
+        },
+        {
+          type: 'group',
+          label: 'Item 2',
+          children: [
+            {
+              label: 'Option 3',
+              key: 'setting:3',
+            },
+            {
+              label: 'Option 4',
+              key: 'setting:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: '业务范围',
+      key: 'BusinessMenu',
+      children: [
+        {
+          type: 'group',
+          label: 'Item 1',
+          children: [
+            {
+              label: 'Option 1',
+              key: 'setting:1',
+            },
+            {
+              label: 'Option 2',
+              key: 'setting:2',
+            },
+          ],
+        },
+        {
+          type: 'group',
+          label: 'Item 2',
+          children: [
+            {
+              label: 'Option 3',
+              key: 'setting:3',
+            },
+            {
+              label: 'Option 4',
+              key: 'setting:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: '成功案例',
+      key: 'SubMenu',
+      children: [
+        {
+          type: 'group',
+          label: 'Item 1',
+          children: [
+            {
+              label: 'Option 1',
+              key: 'setting:1',
+            },
+            {
+              label: 'Option 2',
+              key: 'setting:2',
+            },
+          ],
+        },
+        {
+          type: 'group',
+          label: 'Item 2',
+          children: [
+            {
+              label: 'Option 3',
+              key: 'setting:3',
+            },
+            {
+              label: 'Option 4',
+              key: 'setting:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: '政策法规',
+      key: 'PoliciesMenu',
+      children: [
+        {
+          type: 'group',
+          label: 'Item 1',
+          children: [
+            {
+              label: 'Option 1',
+              key: 'setting:1',
+            },
+            {
+              label: 'Option 2',
+              key: 'setting:2',
+            },
+          ],
+        },
+        {
+          type: 'group',
+          label: 'Item 2',
+          children: [
+            {
+              label: 'Option 3',
+              key: 'setting:3',
+            },
+            {
+              label: 'Option 4',
+              key: 'setting:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: '下载中心',
+      key: 'DownloadMenu',
+      children: [
+        {
+          type: 'group',
+          label: 'Item 1',
+          children: [
+            {
+              label: 'Option 1',
+              key: 'setting:1',
+            },
+            {
+              label: 'Option 2',
+              key: 'setting:2',
+            },
+          ],
+        },
+        {
+          type: 'group',
+          label: 'Item 2',
+          children: [
+            {
+              label: 'Option 3',
+              key: 'setting:3',
+            },
+            {
+              label: 'Option 4',
+              key: 'setting:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: '信息公示',
+      key: 'PublicityMenu',
+      children: [
+        {
+          type: 'group',
+          label: 'Item 1',
+          children: [
+            {
+              label: 'Option 1',
+              key: 'setting:1',
+            },
+            {
+              label: 'Option 2',
+              key: 'setting:2',
+            },
+          ],
+        },
+        {
+          type: 'group',
+          label: 'Item 2',
+          children: [
+            {
+              label: 'Option 3',
+              key: 'setting:3',
+            },
+            {
+              label: 'Option 4',
+              key: 'setting:4',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: (
+        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+              联系我们
+        </a>
+      ),
+      key: 'Contact',
+    },
+  ]
+  const [current, setCurrent] = useState('mail')
+  const onClick = (e) => {
+    console.log('click ', e)
+    setCurrent(e.key)
+  }
+
+  const contentStyle = {
+    height: '500px',
+    color: '#fff',
+    lineHeight: '500px',
+    textAlign: 'center',
+    background: '#364d79',
+  }
+
   return (
     <>
       <Head>
@@ -15,107 +255,81 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
+        {/* 头部 start */}
+        <div className={styles.headHome}>
+          <div className={styles.headTop}>
+            <div className={styles.flexTop}>
+              <div>
+                <i className='iconfont  icon-aixin'></i>
+                <span>18685417929</span>
+                <i className='iconfont  icon-aixin'></i>
+                <span>1129422384@qq.com</span>
+              </div>
+              <div>
+                <i className='iconfont  icon-aixin'></i>
+                <span>设为首页</span>
+                <i className='iconfont  icon-aixin'></i>
+                <span>加入收藏</span>
+              </div>
+            </div>
+          </div>
+          {/* logo */}
+          <div className={styles.headLogo}>
+            <div className={styles.w1200}>
               <Image
-                src="/vercel.svg"
+                src="/20190715033031884.png"
                 alt="Vercel Logo"
                 className={styles.vercelLogo}
-                width={100}
-                height={24}
+                width={500}
+                height={76}
                 priority
               />
-            </a>
+            </div>
+          </div>
+
+          {/* nav */}
+          <div className={styles.nav}>
+            <div className={styles.w1200}>
+              <Menu 
+                className={styles.navMenu} 
+                onClick={onClick} 
+                selectedKeys={[current]} 
+                mode="horizontal" 
+                items={items}
+                theme='dark'
+              />
+            </div>
+          </div>
+
+          {/* 轮播图 */}
+          <div className={styles.textCenter}>
+            <Carousel 
+              className={styles.slides}
+              arrows={true}
+              prevArrow={<i className='iconfont  icon-aixin'></i>}
+              nextArrow={<i className='iconfont  icon-aixin'></i>}
+            //   autoplay 
+            >
+              <div>
+                <h3 style={contentStyle}>1</h3>
+              </div>
+              <div>
+                <h3 style={contentStyle}>2</h3>
+              </div>
+              <div>
+                <h3 style={contentStyle}>3</h3>
+              </div>
+              <div>
+                <h3 style={contentStyle}>4</h3>
+              </div>
+            </Carousel>
           </div>
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+        {/* 头部 end */}
+        
+        {/* 成功案例 */}
+        <div className={styles.category}>
+            
         </div>
       </main>
     </>
