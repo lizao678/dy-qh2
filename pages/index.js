@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { Menu } from 'antd'
+import { Carousel,Menu,Card, Button } from 'antd'
 import { useState } from 'react'
 import styles from '@/styles/Home.module.scss'
-import { Carousel } from 'antd'
+
+const { Meta } = Card
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -329,7 +330,111 @@ export default function Home() {
         
         {/* 成功案例 */}
         <div className={styles.category}>
-            
+          <h4>成功案例</h4>
+          <div className={styles.w1200}>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+          </div>
+        </div>
+
+        {/* 关于我们 */}
+        <div className={styles.about}>
+          <div className={styles.w1200}>
+            <div className={styles.aboutLeft}>
+              <h4>关于我们</h4>
+              <p>
+                业务范围：
+                贵州水陆源生态环境咨询有限公司成立于2016年，提供环境影响评价、生物多样性和生态调查监测、河湖生态修复、各类生态敏感区影响评价（自然保护区、水产种质资源保护区、风景名胜区、湿地公园等）、水资源保护等全域生态解决方案和科技集成业务，服务部门涵盖水利水电、能源交通、环保、农业、林业、旅游等众多行业。
+                专业方向：
+                专业方向涵盖环境工程、植物学、渔业、水文水资源、地理信息系统等学科。
+                合作单位：
+                与四川大学、贵州大学、云南大学、贵州民族大学等高校和科研单位建立了长期的合作平台，为生态环境部、农业农村部、水利部等部委提供生态环境...
+              </p>
+              <Button className={styles.aboutBtn}>查看更多{'>>'}</Button>
+            </div>
+          </div>
+        </div>
+
+        {/* 信息公式 */}
+        <div className={styles.cim}>
+          <h4>信息公式</h4>
+          <div className={styles.w1200}>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+            <Card
+              hoverable
+              style={{
+                width: 240,
+              }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            >
+              <Meta title="Europe Street beat" description="www.instagram.com" />
+            </Card>
+          </div>
+        </div>
+
+        {/* footer */}
+        <div className={styles.}>
+
         </div>
       </main>
     </>
