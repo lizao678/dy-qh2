@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head >
-        <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3932609_irx9cfs6tei.css"  />
+        <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3932609_pjzott7hunj.css"  />
       </Head>
       <body>
         <Main />

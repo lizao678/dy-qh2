@@ -1,0 +1,47 @@
+.headTop{
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    color: #fff;
+    background: #0e2963;
+    .flexTop{
+        display: flex;
+        justify-content: space-between;
+        width: var(--max-width);
+    }
+}
+
+.headLogo{
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    width: 100%;
+    height: 97px;
+    padding: 1px 0px;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    // height:55px;
+    background-color: #0067be;
+}
+
+.navMenu{
+    // height:55px;
+    background-color: #0067be
+}
+
+// .ant-carousel .slick-prev,
+//     .ant-carousel .slick-next,
+//     .ant-carousel .slick-prev:hover,
+//     .ant-carousel .slick-next:hover {
+//         font-size: inherit;
+//         color: currentColor;
+//     }
+
+.w1200{
+    width: var(--max-width)
+}

@@ -1,244 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import { Carousel,Menu,Card, Button } from 'antd'
-import { useState } from 'react'
+// import Image from 'next/image'
+import { Carousel,Card, Button } from 'antd'
 import styles from '@/styles/Home.module.scss'
+import Layout from '@/components/layout'
+import { useRef } from 'react'
 
 const { Meta } = Card
 
-
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
-  const items = [
-    {
-      label: '首页',
-      key: 'Home',
-    },
-    {
-      label: '公司简介',
-      key: 'Introduction',
-    },
-    {
-      label: '新闻中心',
-      key: 'NewMenu',
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '业务范围',
-      key: 'BusinessMenu',
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '成功案例',
-      key: 'SubMenu',
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '政策法规',
-      key: 'PoliciesMenu',
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '下载中心',
-      key: 'DownloadMenu',
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '信息公示',
-      key: 'PublicityMenu',
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-              联系我们
-        </a>
-      ),
-      key: 'Contact',
-    },
-  ]
-  const [current, setCurrent] = useState('mail')
-  const onClick = (e) => {
-    console.log('click ', e)
-    setCurrent(e.key)
-  }
-
+  const switchRef = useRef(null)
   const contentStyle = {
     height: '500px',
     color: '#fff',
@@ -248,7 +18,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <Layout home>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="Generated by create next app" />
@@ -258,58 +28,12 @@ export default function Home() {
       <main className={styles.main}>
         {/* 头部 start */}
         <div className={styles.headHome}>
-          <div className={styles.headTop}>
-            <div className={styles.flexTop}>
-              <div>
-                <i className='iconfont  icon-aixin'></i>
-                <span>18685417929</span>
-                <i className='iconfont  icon-aixin'></i>
-                <span>1129422384@qq.com</span>
-              </div>
-              <div>
-                <i className='iconfont  icon-aixin'></i>
-                <span>设为首页</span>
-                <i className='iconfont  icon-aixin'></i>
-                <span>加入收藏</span>
-              </div>
-            </div>
-          </div>
-          {/* logo */}
-          <div className={styles.headLogo}>
-            <div className={styles.w1200}>
-              <Image
-                src="/20190715033031884.png"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={500}
-                height={76}
-                priority
-              />
-            </div>
-          </div>
-
-          {/* nav */}
-          <div className={styles.nav}>
-            <div className={styles.w1200}>
-              <Menu 
-                className={styles.navMenu} 
-                onClick={onClick} 
-                selectedKeys={[current]} 
-                mode="horizontal" 
-                items={items}
-                theme='dark'
-              />
-            </div>
-          </div>
-
           {/* 轮播图 */}
           <div className={styles.textCenter}>
             <Carousel 
               className={styles.slides}
-              arrows={true}
-              prevArrow={<i className='iconfont  icon-aixin'></i>}
-              nextArrow={<i className='iconfont  icon-aixin'></i>}
-            //   autoplay 
+              ref={switchRef}
+              //   autoplay 
             >
               <div>
                 <h3 style={contentStyle}>1</h3>
@@ -324,6 +48,12 @@ export default function Home() {
                 <h3 style={contentStyle}>4</h3>
               </div>
             </Carousel>
+            <div className={styles.arrowLeft} onClick={() => switchRef.current.prev()}>
+              <i className='iconfont  icon-xiangzuo'></i>
+            </div>
+            <div className={styles.arrowRight} onClick={() => switchRef.current.next()}>
+              <i className='iconfont  icon-xiangyou'></i>
+            </div>
           </div>
         </div>
         {/* 头部 end */}
@@ -446,43 +176,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* footer */}
-        <div className={styles.footer}>
-          <ul className={styles.footerS}>
-            <li>
-              <h1>公司简介</h1>
-              <a href="http://www.shuiluyuan.cn/list-2-1.html"title="公司介绍">公司介绍</a>
-              <a href="http://www.shuiluyuan.cn/list-3-1.html"title="企业文化">企业文化</a>
-              <a href="http://www.shuiluyuan.cn/list-4-1.html"title="技术团队">技术团队</a>
-              <a href="http://www.shuiluyuan.cn/list-24-1.html"title="主营业务">主营业务</a>
-            </li>
-            <li>
-              <h1>资讯交流</h1>
-              <a href="http://www.shuiluyuan.cn/index.php?m=content&c=index&a=lists&catid=5"title="新闻中心">新闻中心</a>
-              <a href="http://www.shuiluyuan.cn/list-6-1.html"title="政策法规">政策法规</a>
-              <a href="http://www.shuiluyuan.cn/list-14-1.html"title="技术交流">技术交流</a>
-            </li>
-            <li>
-              <h1>其他</h1>
-              <a href=""title="">新闻中心</a>
-              <a href="http://www.shuiluyuan.cn/hpgs/"title="信息公示">政策法规</a>
-              <a href="http://www.shuiluyuan.cn/list-16-1.html"title="合作机构">技术交流</a>
-              <a href="http://www.shuiluyuan.cn/list-17-1.html"title="联系我们">新闻中心</a>
-            </li>
-            <li>
-              <h1>扫描关注</h1>
-              <img src="../public/weixin.jpg"/>
-            </li>
-          </ul>
-          
-          <div className={styles.wbline}></div>
-          <div className={styles.copyright}>
-            <p>版权所有：贵州水陆源生态环境咨询有限公司    <a href="https://beian.miit.gov.cn" target="_blank" style={{color:'#0067BE'}}>黔ICP备18006237号-1</a></p>
-            <span>地址:贵州省贵阳市观山湖区麒龙商务港1栋11楼</span>
-          </div>
-        </div>
       </main>
-    </>
+    </Layout>
   )
 }

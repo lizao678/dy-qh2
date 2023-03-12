@@ -109,3 +109,8 @@ a {
     color-scheme: dark;
   }
 }
+
+.w1200{
+    width: var(--max-width);
+    margin: 0 auto;
+}
